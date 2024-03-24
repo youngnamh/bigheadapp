@@ -1,0 +1,12 @@
+<div>
+  <div class="sidenav-profile">
+    <mat-icon matListItemIcon>person</mat-icon>
+    <h5>Welcome Youngnam!</h5>
+  </div>
+  <mat-nav-list>
+    <a mat-list-item *ngFor="let item of menuItems" class="dash-item">
+      <mat-icon matListItemIcon>{{ item.icon }}</mat-icon>
+      <span matListItemTitle class="dash-item-title">{{ item.name }}</span>
+    </a>
+  </mat-nav-list>
+</div>

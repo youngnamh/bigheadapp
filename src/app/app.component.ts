@@ -7,6 +7,7 @@ import { FooterComponent } from './components/footer/footer.component';
 import { RouterModule } from '@angular/router';
 import { AuthService } from './services/auth.service';
 import { Router } from '@angular/router';
+import { DashboardComponent } from './pages/dashboard/dashboard.component';
 
 @Component({
   selector: 'app-root',
@@ -18,6 +19,7 @@ import { Router } from '@angular/router';
     AuthPageComponent,
     HeaderComponent,
     FooterComponent,
+    DashboardComponent,
   ],
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss',
