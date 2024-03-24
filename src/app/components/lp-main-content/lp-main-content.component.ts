@@ -21,6 +21,6 @@ export class LpMainContentComponent {
   redirectToStrava() {
     console.log('hello');
     console.log(this.authUrl);
-    //window.open(this.stravaAuth, '_blank');
+    window.open(this.stravaAuth, '_blank');
   }
 }
