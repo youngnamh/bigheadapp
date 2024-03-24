@@ -1,0 +1,80 @@
+.lp-main {
+  .lp-content {
+    margin-top: 10rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+}
+
+h1,
+h2 {
+  text-align: center;
+}
+
+h1 {
+  font-size: 10rem;
+  padding: 1rem;
+  margin: 2rem;
+}
+
+h2 {
+  font-size: 2rem;
+  padding: 0rem;
+  margin: 0.5rem;
+  color: white;
+}
+
+.stravaConnectButton {
+  border: none; /* Remove the default button border */
+  background: url("../../../assets/images/btn_strava_connectwith_orange@2x.png")
+    no-repeat; /* Set the background image */
+  background-size: contain; /* Use contain to maintain aspect ratio */
+  background-position: center; /* Center the background image */
+  width: 386px; /* Set the width of the button */
+  height: 96px; /* Automatically adjust height based on width */
+  cursor: pointer;
+  margin: 2rem;
+}
+
+@media only screen and (max-width: 576px) {
+  /* Styles for smartphones */
+  /* Adjust font sizes, padding, margins, etc. */
+  h1 {
+    font-size: 4rem;
+    font-weight: bold;
+    margin: 1rem;
+  }
+
+  h2 {
+    font-size: 1.25rem;
+    padding: 0rem;
+    margin: 0rem;
+    color: white;
+  }
+
+  .stravaConnectButton {
+    width: 193px;
+    height: 48px;
+  }
+}
+
+@media only screen and (min-width: 577px) and (max-width: 1023px) {
+  /* Styles for tablets and small laptops */
+  /* Adjust column layouts, font sizes, etc. */
+  h1 {
+    font-size: 7rem;
+    padding: 1rem;
+    margin: 1rem;
+  }
+
+  h2 {
+    font-size: 1.75rem;
+    padding: 0rem;
+  }
+
+  .stravaConnectButton {
+    width: 290px;
+    height: 72px;
+  }
+}

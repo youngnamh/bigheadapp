@@ -1,0 +1,26 @@
+footer {
+  display: flex;
+  align-items: end;
+  justify-content: center;
+}
+
+.footerText {
+  color: white;
+  font-size: small;
+}
+
+@media only screen and (max-width: 576px) {
+  /* Styles for smartphones */
+
+  .footerText {
+    font-size: x-small;
+  }
+}
+
+@media only screen and (min-width: 577px) and (max-width: 1023px) {
+  /* Styles for tablets and small laptops */
+  /* Adjust column layouts, font sizes, etc. */
+  .footerText {
+    font-size: small;
+  }
+}
