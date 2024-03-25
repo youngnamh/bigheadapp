@@ -1,4 +1,4 @@
-<div>
+<div class="dc-div">
   <mat-sidenav-container
     [class.mat-is-side]="mode === 'side'"
     [class.mat-is-over]="mode === 'push'"
@@ -18,7 +18,10 @@
       class="sidenav-content"
       [style.margin-left]="sideNavWidth()"
     >
-      Hello
+      <div class="sn-cont-div">
+        <app-dash-header class="dash-head"></app-dash-header>
+        <app-dash-body class="dash-bod"></app-dash-body>
+      </div>
     </mat-sidenav-content>
   </mat-sidenav-container>
 </div>

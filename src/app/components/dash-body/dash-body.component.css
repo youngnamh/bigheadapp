@@ -1,0 +1,7 @@
+.dash-body {
+  margin: 0;
+  padding: 1rem;
+  background-color: yellow;
+  flex-grow: 1;
+  height: 100%;
+}

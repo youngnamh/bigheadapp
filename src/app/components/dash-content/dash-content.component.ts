@@ -10,6 +10,8 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatToolbar } from '@angular/material/toolbar';
 import { CustomSidenavComponent } from '../custom-sidenav/custom-sidenav.component';
 import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
+import { DashHeaderComponent } from '../dash-header/dash-header.component';
+import { DashBodyComponent } from '../dash-body/dash-body.component';
 
 @Component({
   selector: 'app-dash-content',
@@ -21,6 +23,8 @@ import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
     MatIconModule,
     MatToolbar,
     CustomSidenavComponent,
+    DashHeaderComponent,
+    DashBodyComponent,
   ],
   templateUrl: './dash-content.component.html',
   styleUrl: './dash-content.component.css',
