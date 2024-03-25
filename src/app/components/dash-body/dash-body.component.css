@@ -1,7 +1,38 @@
 .dash-body {
   margin: 0;
-  padding: 1rem;
   background-color: yellow;
   flex-grow: 1;
   height: 100%;
+}
+
+.border {
+  border: 1px solid black;
+}
+
+.body-container {
+  display: flex;
+  height: 100%;
+}
+
+.main-body {
+  width: 78%;
+  height: 100%;
+  margin: 0.5rem;
+  max-width: 1000px;
+}
+
+.friends-list {
+  width: 20%;
+  height: 100%;
+  margin: 0.5rem;
+}
+
+.participants-title {
+  text-align: center;
+  background-color: var(--secondary-color);
+  margin-bottom: 0.25rem;
+}
+
+li {
+  text-align: center;
 }

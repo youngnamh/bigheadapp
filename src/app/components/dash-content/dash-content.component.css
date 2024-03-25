@@ -11,18 +11,18 @@ mat-sidenav-container {
   display: flex;
   flex-direction: column;
   height: 100%;
+  background-color: var(--primary-color);
 }
 
 .dash-head {
-  background-color: red;
-  margin: 0;
+  background-color: var(--accent-color);
+  margin-bottom: 0.5rem;
   padding: 1rem;
   height: 5rem;
+  box-shadow: 0px 0px 5px 0px #000000;
 }
 
 .dash-bod {
   margin: 0;
-  padding: 1rem;
-  background-color: yellow;
   flex-grow: 1;
 }

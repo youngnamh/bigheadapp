@@ -1,3 +1,9 @@
-<div>
-  <p>dash-body works!</p>
+<div class="body-container">
+  <div class="main-body border">main</div>
+  <div class="friends-list border">
+    <div class="participants-title">Participants</div>
+    <div class="participants-list">
+      <li *ngFor="let participant of participants">{{ participant.name }}</li>
+    </div>
+  </div>
 </div>

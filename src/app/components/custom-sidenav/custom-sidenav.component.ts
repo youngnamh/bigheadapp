@@ -41,6 +41,7 @@ export class CustomSidenavComponent {
     { name: 'Recent Activity', icon: 'dashboard', route: '/dashboard' },
     { name: 'Profile', icon: 'home', route: '/profile' },
     { name: 'Settings', icon: 'settings', route: '/settings' },
+    { name: 'Invitations', icon: 'mail', route: '/settings' },
   ];
 
   constructor(private breakpointObserver: BreakpointObserver) {}
