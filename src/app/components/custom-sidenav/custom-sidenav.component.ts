@@ -35,9 +35,10 @@ export type MenuItem = {
 export class CustomSidenavComponent {
   @Output() onCollapse: EventEmitter<boolean> = new EventEmitter<boolean>();
   collapsed = false;
+  collapsedSignal = signal(false);
 
   menuItems: MenuItem[] = [
-    { name: 'Dashboard', icon: 'dashboard', route: '/dashboard' },
+    { name: 'Recent Activity', icon: 'dashboard', route: '/dashboard' },
     { name: 'Profile', icon: 'home', route: '/profile' },
     { name: 'Settings', icon: 'settings', route: '/settings' },
   ];
@@ -59,7 +60,16 @@ export class CustomSidenavComponent {
 
   collapse() {
     this.collapsed = !this.collapse;
+    this.collapsedSignal.set(!this.collapsedSignal());
     this.onCollapse.emit(this.collapsed);
+  }
+
+  getCollapsed() {
+    return this.collapsed;
+  }
+
+  getFontSize(): string {
+    return this.collapsedSignal() ? '0px' : '20px';
   }
 
   log(text: string) {

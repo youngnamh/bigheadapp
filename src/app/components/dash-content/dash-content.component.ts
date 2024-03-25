@@ -1,5 +1,9 @@
-import { Component, computed, signal, OnInit } from '@angular/core';
-import { MatDrawerMode, MatSidenavModule } from '@angular/material/sidenav';
+import { Component, computed, signal, OnInit, ViewChild } from '@angular/core';
+import {
+  MatDrawerMode,
+  MatSidenav,
+  MatSidenavModule,
+} from '@angular/material/sidenav';
 import { MatListModule } from '@angular/material/list';
 import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
@@ -57,7 +61,7 @@ export class DashContentComponent {
 
   setMode(): void {
     if (this.breakPointObserver.isMatched(Breakpoints.Handset)) {
-      this.mode = 'push'; // For small screens like phones
+      this.mode = 'side'; // For small screens like phones
     } else {
       this.mode = 'side'; // For larger screens like tablets and desktops
     }

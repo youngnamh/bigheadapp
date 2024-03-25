@@ -3,7 +3,12 @@
     [class.mat-is-side]="mode === 'side'"
     [class.mat-is-over]="mode === 'push'"
   >
-    <mat-sidenav opened [mode]="mode" [style.width]="sideNavWidth()">
+    <mat-sidenav
+      #sidenav
+      opened="true"
+      [mode]="mode"
+      [style.width]="sideNavWidth()"
+    >
       <app-custom-sidenav
         (onCollapse)="collapseNav($event)"
       ></app-custom-sidenav>
@@ -12,7 +17,6 @@
     <mat-sidenav-content
       class="sidenav-content"
       [style.margin-left]="sideNavWidth()"
-      (click)="clickContent()"
     >
       Hello
     </mat-sidenav-content>
