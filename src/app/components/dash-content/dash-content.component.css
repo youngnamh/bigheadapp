@@ -3,5 +3,9 @@
 }
 
 mat-sidenav-container {
-  height: 80vh;
+  height: 90vh;
+}
+
+mat-sidenav-content {
+  background-color: blue;
 }

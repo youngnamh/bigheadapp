@@ -4,6 +4,7 @@ import {
   signal,
   Output,
   EventEmitter,
+  Signal,
 } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { MatListModule } from '@angular/material/list';
@@ -31,9 +32,9 @@ export type MenuItem = {
   styleUrl: './custom-sidenav.component.css',
 })
 export class CustomSidenavComponent {
-  @Output() onCollapse: EventEmitter<void> = new EventEmitter<void>();
+  @Output() onCollapse: EventEmitter<boolean> = new EventEmitter<boolean>();
 
-  // sidenavWidth = computed(() => (this.collapsed() ? '40px' : '200px'));
+  collapsed = false;
 
   menuItems: MenuItem[] = [
     { name: 'Dashboard', icon: 'dashboard', route: '/dashboard' },
@@ -42,7 +43,8 @@ export class CustomSidenavComponent {
   ];
 
   collapse() {
-    this.onCollapse.emit();
+    this.collapsed = !this.collapse;
+    this.onCollapse.emit(this.collapsed);
   }
 
   log(text: string) {
