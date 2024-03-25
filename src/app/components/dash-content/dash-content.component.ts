@@ -44,9 +44,15 @@ export class DashContentComponent {
     console.log(text);
   }
 
-  collapseNav() {
+  collapseNav(isCollapsed: boolean) {
     console.log(`Nav collapsed ${this.collapsed()}`);
     this.collapsed.set(!this.collapsed());
+  }
+
+  clickContent() {
+    if (this.breakPointObserver.isMatched(Breakpoints.Handset)) {
+      this.collapseNav(true);
+    }
   }
 
   setMode(): void {
