@@ -5,7 +5,7 @@
     "rewrites": [
       {
         "source": "**/exchange_token*",
-        "destination": "/redirect.html?redirect=$1",
+        "destination": "/redirect?redirect=$1",
         "type": 301
       },
       {
