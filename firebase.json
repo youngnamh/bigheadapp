@@ -4,6 +4,11 @@
     "ignore": ["firebase.json", "**/.*", "**/node_modules/**"],
     "rewrites": [
       {
+        "source": "**/exchange_token*",
+        "destination": "/dashboard",
+        "type": 301
+      },
+      {
         "source": "**",
         "destination": "/index.html"
       }
