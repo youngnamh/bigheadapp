@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { DashContentComponent } from '../../components/dash-content/dash-content.component';
 import { ActivatedRoute } from '@angular/router';
 import { AuthService } from '../../services/auth.service';
+import { ApiService } from '../../services/api.service';
 
 @Component({
   selector: 'app-dashboard',
@@ -21,7 +22,6 @@ export class DashboardComponent {
     const code = localStorage.getItem('redirect');
     console.log(`Redirect code in Dash: ${code}`);
 
-    /*
     if (code) {
       this.authService.getStravaData(code).subscribe(
         (data) => {
@@ -32,6 +32,5 @@ export class DashboardComponent {
         }
       );
     }
-    */
   }
 }

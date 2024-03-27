@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
 import { Observable } from 'rxjs';
 
 @Injectable({
@@ -30,16 +30,12 @@ export class AuthService {
   }
 
   getStravaData(redirectCode: string): Observable<any> {
-    const params = {
-      client_id: this.CLIENT_ID,
-      client_secret: this.CLIENT_SECRET,
-      code: redirectCode,
-      grant_type: 'authorization_code',
-    };
+    let params = new HttpParams();
+    params = params.append('client_id', this.CLIENT_ID);
+    params = params.append('client_secret', this.CLIENT_SECRET);
+    params = params.append('code', redirectCode);
+    params = params.append('grant_type', 'authorization_code');
 
-    return this.http.post<any>(this.STRAVA_AUTH_URL, {
-      params,
-      ...this.httpOptions,
-    });
+    return this.http.post<any>(this.STRAVA_AUTH_URL, params, this.httpOptions);
   }
 }
