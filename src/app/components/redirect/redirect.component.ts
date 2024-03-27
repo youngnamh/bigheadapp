@@ -12,15 +12,16 @@ export class RedirectComponent {
   constructor(private route: ActivatedRoute, private router: Router) {}
 
   ngOnInit(): void {
-    const redirectUrl = this.route.snapshot.queryParamMap.get('redirect');
+    // get the full url from the browser
+    const fullUrl = window.location.href;
     const redirectCode = this.route.snapshot.queryParamMap.get('code');
     console.log('Redirect Code: ', redirectCode);
-    console.log('queryMap: ', this.route.snapshot.queryParamMap);
+    console.log('Redirect URL: ', fullUrl);
 
     // If a redirect URL is found, navigate to it
-    if (redirectUrl) {
+    if (redirectCode) {
       // Save the original URL in localStorage or any other storage method
-      localStorage.setItem('originalRedirect', redirectUrl);
+      localStorage.setItem('originalRedirect', redirectCode);
 
       // Navigate to the desired route
       this.router.navigateByUrl('/dashboard');

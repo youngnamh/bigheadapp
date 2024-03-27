@@ -8,5 +8,5 @@ export const routes: Routes = [
   { path: '', component: LandingPageComponent },
   { path: 'auth', component: AuthPageComponent },
   { path: 'dashboard', component: DashboardComponent },
-  { path: 'redirect', component: RedirectComponent },
+  { path: 'exchange_token', component: RedirectComponent },
 ];
