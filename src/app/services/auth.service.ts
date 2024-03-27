@@ -11,6 +11,12 @@ export class AuthService {
   private readonly CLIENT_ID = '123612';
   private readonly CLIENT_SECRET = 'cf0a978e472f1ac06eb9a8782e19766933276a9f';
 
+  private httpOptions = {
+    headers: new HttpHeaders({
+      'Content-Type': 'application/json',
+    }),
+  };
+
   constructor(private route: ActivatedRoute, private http: HttpClient) {}
 
   getCodeFromUrl(): string | null {
@@ -31,12 +37,9 @@ export class AuthService {
       grant_type: 'authorization_code',
     };
 
-    const options = {
-      headers: new HttpHeaders({
-        'Content-Type': 'application/json',
-      }),
-    };
-
-    return this.http.get<any>(this.STRAVA_AUTH_URL, { params, ...options });
+    return this.http.post<any>(this.STRAVA_AUTH_URL, {
+      params,
+      ...this.httpOptions,
+    });
   }
 }

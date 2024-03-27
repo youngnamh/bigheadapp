@@ -20,6 +20,8 @@ export class DashboardComponent {
     console.log('DashboardComponent initialized');
     const code = localStorage.getItem('redirect');
     console.log(`Redirect code in Dash: ${code}`);
+
+    /*
     if (code) {
       this.authService.getStravaData(code).subscribe(
         (data) => {
@@ -30,5 +32,6 @@ export class DashboardComponent {
         }
       );
     }
+    */
   }
 }

@@ -10,28 +10,14 @@ import { AuthService } from '../../services/auth.service';
   styleUrl: './redirect.component.css',
 })
 export class RedirectComponent {
-  redirectCode!: string;
-
-  constructor(
-    private route: ActivatedRoute,
-    private router: Router,
-    private authService: AuthService
-  ) {}
+  constructor(private route: ActivatedRoute, private router: Router) {}
 
   ngOnInit(): void {
     // get the full url from the browser
-    const code = this.authService.getCodeFromUrl();
+    const code = this.route.snapshot.queryParamMap.get('code');
     if (code) {
-      this.redirectCode = code;
-    }
-
-    // If a redirect URL is found, navigate to it
-    if (this.redirectCode) {
-      // Save the original URL in localStorage or any other storage method
-      console.log(
-        `Setting redirect code in localStorage: ${this.redirectCode}`
-      );
-      localStorage.setItem('redirect', this.redirectCode);
+      console.log(`Setting redirect code in localStorage: ${code}`);
+      localStorage.setItem('redirect', code);
 
       // Navigate to the desired route
       this.router.navigateByUrl('/dashboard');
