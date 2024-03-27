@@ -14,7 +14,8 @@ import { ApiService } from '../../services/api.service';
 export class DashboardComponent {
   constructor(
     private route: ActivatedRoute,
-    private authService: AuthService
+    private authService: AuthService,
+    private apiService: ApiService
   ) {}
 
   ngOnInit(): void {
@@ -22,15 +23,28 @@ export class DashboardComponent {
     const code = localStorage.getItem('redirect');
     console.log(`Redirect code in Dash: ${code}`);
 
-    if (code) {
-      this.authService.getStravaData(code).subscribe(
-        (data) => {
-          console.log('Strava data: ', data);
-        },
-        (error) => {
-          console.error('Error fetching Strava data');
-        }
-      );
-    }
+    this.getData(3);
+
+    // if (code) {
+    //   this.authService.getStravaData(code).subscribe(
+    //     (data) => {
+    //       console.log('Strava data: ', data);
+    //     },
+    //     (error) => {
+    //       console.error('Error fetching Strava data');
+    //     }
+    //   );
+    // }
+  }
+
+  getData(index: number): void {
+    this.apiService.getShirt(index).subscribe(
+      (data) => {
+        console.log('Data fetched from shirts: ', data);
+      },
+      (error) => {
+        console.error('Error fetching data:', error);
+      }
+    );
   }
 }
