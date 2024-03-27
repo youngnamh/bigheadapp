@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { DashContentComponent } from '../../components/dash-content/dash-content.component';
 import { ActivatedRoute } from '@angular/router';
+import { AuthService } from '../../services/auth.service';
 
 @Component({
   selector: 'app-dashboard',
@@ -10,15 +11,24 @@ import { ActivatedRoute } from '@angular/router';
   styleUrl: './dashboard.component.css',
 })
 export class DashboardComponent {
-  constructor(private route: ActivatedRoute) {}
+  constructor(
+    private route: ActivatedRoute,
+    private authService: AuthService
+  ) {}
 
   ngOnInit(): void {
-    this.route.queryParams.subscribe((params) => {
-      const originalUrl = params['originalUrl'];
-      if (originalUrl) {
-        console.log('Original URL from dashboard:', originalUrl);
-        // Now you can use the originalUrl as needed in your Angular component logic
-      }
-    });
+    console.log('DashboardComponent initialized');
+    const code = localStorage.getItem('redirect');
+    console.log(`Redirect code in Dash: ${code}`);
+    if (code) {
+      this.authService.getStravaData(code).subscribe(
+        (data) => {
+          console.log('Strava data: ', data);
+        },
+        (error) => {
+          console.error('Error fetching Strava data');
+        }
+      );
+    }
   }
 }

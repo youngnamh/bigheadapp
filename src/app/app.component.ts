@@ -5,7 +5,6 @@ import { AuthPageComponent } from './pages/auth-page/auth-page.component';
 import { HeaderComponent } from './components/header/header.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { RouterModule } from '@angular/router';
-import { AuthService } from './services/auth.service';
 import { Router } from '@angular/router';
 import { DashboardComponent } from './pages/dashboard/dashboard.component';
 
@@ -27,16 +26,5 @@ import { DashboardComponent } from './pages/dashboard/dashboard.component';
 export class AppComponent {
   title = 'bigheadapp';
 
-  constructor(private authService: AuthService, private router: Router) {}
-
-  ngOnInit() {
-    const code = this.authService.getCodeFromUrl();
-    if (code) {
-      console.log('code from Url:', code);
-      //navigate to dashboard route
-      this.router.navigate(['/dashboard']);
-    } else {
-      console.log('no code in Url');
-    }
-  }
+  constructor(private router: Router) {}
 }

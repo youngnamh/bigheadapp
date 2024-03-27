@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
+import { AuthService } from '../../services/auth.service';
 
 @Component({
   selector: 'app-redirect',
@@ -9,19 +10,28 @@ import { ActivatedRoute, Router } from '@angular/router';
   styleUrl: './redirect.component.css',
 })
 export class RedirectComponent {
-  constructor(private route: ActivatedRoute, private router: Router) {}
+  redirectCode!: string;
+
+  constructor(
+    private route: ActivatedRoute,
+    private router: Router,
+    private authService: AuthService
+  ) {}
 
   ngOnInit(): void {
     // get the full url from the browser
-    const fullUrl = window.location.href;
-    const redirectCode = this.route.snapshot.queryParamMap.get('code');
-    console.log('Redirect Code: ', redirectCode);
-    console.log('Redirect URL: ', fullUrl);
+    const code = this.authService.getCodeFromUrl();
+    if (code) {
+      this.redirectCode = code;
+    }
 
     // If a redirect URL is found, navigate to it
-    if (redirectCode) {
+    if (this.redirectCode) {
       // Save the original URL in localStorage or any other storage method
-      localStorage.setItem('originalRedirect', redirectCode);
+      console.log(
+        `Setting redirect code in localStorage: ${this.redirectCode}`
+      );
+      localStorage.setItem('redirect', this.redirectCode);
 
       // Navigate to the desired route
       this.router.navigateByUrl('/dashboard');
