@@ -20,15 +20,43 @@ export class DashboardComponent {
     const code = localStorage.getItem('redirect');
     console.log(`Redirect code in Dash: ${code}`);
 
+    // if (code) {
+    //   this.authService.postStravaAuth(code).subscribe(
+    //     (data) => {
+    //       console.log('Strava data: ', data);
+    //     },
+    //     (error) => {
+    //       console.error('Error fetching Strava data');
+    //     }
+    //   );
+    // }
+
     if (code) {
-      this.authService.postStravaAuth(code).subscribe(
-        (data) => {
-          console.log('Strava data: ', data);
-        },
-        (error) => {
-          console.error('Error fetching Strava data');
-        }
-      );
+      this.sendTokenToApi(code);
     }
+  }
+
+  sendTokenToApi(token: string): void {
+    this.authService.postStravaAuth(token).subscribe(
+      (response) => {
+        console.log('API Response:', response);
+        // Handle the API response here
+      },
+      (error) => {
+        console.error('API Error:', error);
+        // Handle error
+      }
+    );
+  }
+
+  getStrava(): void {
+    this.authService.getStravaAuth().subscribe(
+      (data) => {
+        console.log('Strava data: ', data);
+      },
+      (error) => {
+        console.error('Error fetching Strava data', error);
+      }
+    );
   }
 }

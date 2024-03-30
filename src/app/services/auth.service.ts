@@ -8,7 +8,7 @@ import { Observable } from 'rxjs';
 })
 export class AuthService {
   private readonly bigHeadApiUrl =
-    '2knpwzb4sko65zqxwlmmbal5zm0hztwt.lambda-url.us-east-2.on.aws/';
+    'https://2knpwzb4sko65zqxwlmmbal5zm0hztwt.lambda-url.us-east-2.on.aws/';
 
   private httpOptions = {
     headers: new HttpHeaders({
@@ -33,5 +33,11 @@ export class AuthService {
     const apiUrl = this.bigHeadApiUrl + 'api/strava';
     console.log(`apiUrl: ${apiUrl}`);
     return this.http.post<any>(apiUrl, body, this.httpOptions);
+  }
+
+  getStravaAuth(): Observable<any> {
+    const apiUrl = this.bigHeadApiUrl + 'api/strava';
+    console.log(`apiUrl: ${apiUrl}`);
+    return this.http.get<any>(apiUrl);
   }
 }
