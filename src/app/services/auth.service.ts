@@ -7,9 +7,8 @@ import { Observable } from 'rxjs';
   providedIn: 'root',
 })
 export class AuthService {
-  private readonly STRAVA_AUTH_URL = 'https://www.strava.com/oauth/token';
-  private readonly CLIENT_ID = '123612';
-  private readonly CLIENT_SECRET = 'cf0a978e472f1ac06eb9a8782e19766933276a9f';
+  private readonly bigHeadApiUrl =
+    '2knpwzb4sko65zqxwlmmbal5zm0hztwt.lambda-url.us-east-2.on.aws/';
 
   private httpOptions = {
     headers: new HttpHeaders({
@@ -29,13 +28,10 @@ export class AuthService {
     return this.route.snapshot.queryParamMap.get('code');
   }
 
-  getStravaData(redirectCode: string): Observable<any> {
-    let params = new HttpParams();
-    params = params.append('client_id', this.CLIENT_ID);
-    params = params.append('client_secret', this.CLIENT_SECRET);
-    params = params.append('code', redirectCode);
-    params = params.append('grant_type', 'authorization_code');
-
-    return this.http.post<any>(this.STRAVA_AUTH_URL, params, this.httpOptions);
+  postStravaAuth(aCode: string): Observable<any> {
+    const body = { code: aCode };
+    const apiUrl = this.bigHeadApiUrl + 'api/strava';
+    console.log(`apiUrl: ${apiUrl}`);
+    return this.http.post<any>(apiUrl, body, this.httpOptions);
   }
 }

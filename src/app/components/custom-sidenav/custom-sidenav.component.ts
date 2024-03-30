@@ -52,9 +52,9 @@ export class CustomSidenavComponent {
       .subscribe((result) => {
         if (result.matches) {
           this.collapse();
-          console.log('a handset device');
+          //console.log('a handset device');
         } else {
-          console.log('Not a handset device');
+          //console.log('Not a handset device');
         }
       });
   }

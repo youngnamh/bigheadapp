@@ -53,7 +53,7 @@ export class DashContentComponent {
   }
 
   collapseNav(isCollapsed: boolean) {
-    console.log(`Nav collapsed ${this.collapsed()}`);
+    //console.log(`Nav collapsed ${this.collapsed()}`);
     this.collapsed.set(!this.collapsed());
   }
 

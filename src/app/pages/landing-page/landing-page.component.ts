@@ -12,21 +12,7 @@ import { ApiService } from '../../services/api.service';
   styleUrl: './landing-page.component.scss',
 })
 export class LandingPageComponent {
-  constructor(private apiService: ApiService) {}
+  constructor() {}
 
-  ngOnInit(): void {
-    console.log('LandingPageComponent initialized');
-    this.getData(3);
-  }
-
-  getData(index: number): void {
-    this.apiService.getShirt(index).subscribe(
-      (data) => {
-        console.log('Data fetched from shirts: ', data);
-      },
-      (error) => {
-        console.error('Error fetching data:', error);
-      }
-    );
-  }
+  ngOnInit(): void {}
 }

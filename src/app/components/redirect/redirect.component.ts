@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import { AuthService } from '../../services/auth.service';
 
 @Component({
   selector: 'app-redirect',
@@ -14,9 +13,10 @@ export class RedirectComponent {
 
   ngOnInit(): void {
     // get the full url from the browser
+    const currentUrl = window.location.href;
     const code = this.route.snapshot.queryParamMap.get('code');
     if (code) {
-      console.log(`Setting redirect code in localStorage: ${code}`);
+      //console.log(`Setting redirect code in localStorage: ${code}`);
       localStorage.setItem('redirect', code);
 
       // Navigate to the desired route
