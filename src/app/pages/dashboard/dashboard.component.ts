@@ -33,6 +33,8 @@ export class DashboardComponent {
 
     if (code) {
       this.sendTokenToApi(code);
+    } else {
+      console.error('No code found in dashboard');
     }
   }
 
@@ -45,17 +47,6 @@ export class DashboardComponent {
       (error) => {
         console.error('API Error:', error);
         // Handle error
-      }
-    );
-  }
-
-  getStrava(): void {
-    this.authService.getStravaAuth().subscribe(
-      (data) => {
-        console.log('Strava data: ', data);
-      },
-      (error) => {
-        console.error('Error fetching Strava data', error);
       }
     );
   }
