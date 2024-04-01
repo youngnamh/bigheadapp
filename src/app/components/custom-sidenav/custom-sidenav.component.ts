@@ -12,6 +12,8 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatButtonModule } from '@angular/material/button';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
+import { Athlete } from '../../interfaces/Athlete';
+import { StateService } from '../../services/state.service';
 
 export type MenuItem = {
   name: string;
@@ -36,6 +38,8 @@ export class CustomSidenavComponent {
   @Output() onCollapse: EventEmitter<boolean> = new EventEmitter<boolean>();
   collapsed = false;
   collapsedSignal = signal(false);
+  mainUser: Athlete | null = null;
+  userName: string = this.stateService.getMainUser()?.firstname || 'user';
 
   menuItems: MenuItem[] = [
     { name: 'Recent Activity', icon: 'dashboard', route: '/dashboard' },
@@ -44,7 +48,10 @@ export class CustomSidenavComponent {
     { name: 'Invitations', icon: 'mail', route: '/settings' },
   ];
 
-  constructor(private breakpointObserver: BreakpointObserver) {}
+  constructor(
+    private breakpointObserver: BreakpointObserver,
+    private stateService: StateService
+  ) {}
 
   ngOnInit(): void {
     this.breakpointObserver
@@ -57,6 +64,10 @@ export class CustomSidenavComponent {
           //console.log('Not a handset device');
         }
       });
+
+    this.mainUser = this.stateService.getMainUser();
+    console.log('Main User:', this.mainUser?.firstname);
+    this.userName = this.mainUser?.firstname || 'user';
   }
 
   collapse() {

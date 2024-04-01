@@ -13,42 +13,14 @@ import { StateService } from '../../services/state.service';
   styleUrl: './dashboard.component.css',
 })
 export class DashboardComponent {
-  private athleteInfo!: Athlete;
+  private athleteInfo!: Athlete | null;
 
   constructor(
     private route: ActivatedRoute,
     private stateService: StateService
-  ) {}
-
-  // ngOnInit(): void {
-  //   const code = localStorage.getItem('redirect');
-  //   console.log(`Redirect code in Dash: ${code}`);
-
-  //   if (code) {
-  //     this.sendTokenToApi(code);
-  //   } else {
-  //     console.error('No code found in dashboard');
-  //   }
-  // }
-
-  // sendTokenToApi(token: string): void {
-  //   this.authService.postStravaAuth(token).subscribe(
-  //     (response) => {
-  //       //console.log('API Response:', response);
-  //       this.createAthleteInfo(response);
-  //     },
-  //     (error) => {
-  //       console.error('API Error:', error);
-  //       // Handle error
-  //     }
-  //   );
-  // }
-
-  // createAthleteInfo(response: string): void {
-  //   this.athleteInfo = JSON.parse(response);
-
-  //   this.stateService.setMainUser(this.athleteInfo);
-
-  //   console.log('Athlete Info:', this.athleteInfo);
-  // }
+  ) {
+    if (this.stateService.getMainUser() === null) {
+      this.athleteInfo = this.stateService.getMainUser();
+    }
+  }
 }

@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { StateService } from '../../services/state.service';
 
 @Component({
   selector: 'app-dash-body',
@@ -9,6 +10,7 @@ import { CommonModule } from '@angular/common';
   styleUrl: './dash-body.component.css',
 })
 export class DashBodyComponent {
+  constructor(private stateService: StateService) {}
   participants = [
     { name: 'Dave' },
     { name: 'John' },

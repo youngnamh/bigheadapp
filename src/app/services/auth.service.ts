@@ -31,7 +31,6 @@ export class AuthService {
   postStravaAuth(aCode: string): Observable<any> {
     const body = { code: aCode };
     const apiUrl = this.bigHeadApiUrl + 'api/strava';
-    console.log(`apiUrl: ${apiUrl}`);
     return this.http.post<any>(apiUrl, body, this.httpOptions);
   }
 

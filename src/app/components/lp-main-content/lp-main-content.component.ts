@@ -18,8 +18,6 @@ export class LpMainContentComponent {
   authUrl: string = `https://www.strava.com/api/v3/oauth/token?client_id=${this.clientId}&client_secret=${this.clientSecret}&code=${this.code}&grant_type=authorization_code`;
 
   redirectToStrava() {
-    console.log('hello');
-    console.log(this.authUrl);
     window.open(this.stravaAuth, '_self');
   }
 }
