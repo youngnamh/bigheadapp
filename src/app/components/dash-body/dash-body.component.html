@@ -1,5 +1,15 @@
 <div class="body-container">
-  <div class="main-body border">main</div>
+  <div class="main-body border">
+    <div class="all-groups">
+      <div class="group" *ngFor="let group of GROUPS">
+        <h3>{{ group.groupName }}</h3>
+        <p><strong>Group ID:</strong> {{ group.groupId }}</p>
+        <p><strong>Start Date:</strong> {{ group.startDate }}</p>
+        <p><strong>End Date:</strong> {{ group.endDate }}</p>
+        <p><strong>Athletes:</strong></p>
+      </div>
+    </div>
+  </div>
   <div class="friends-list border">
     <div class="participants-title">Participants</div>
     <div class="participants-list">
