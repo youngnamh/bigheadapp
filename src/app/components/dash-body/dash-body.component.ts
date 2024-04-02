@@ -153,7 +153,7 @@ export class DashBodyComponent {
     athlete: Athlete,
     startDate: string,
     endDate: string
-  ): string {
+  ): number {
     const activitiesWithinRange = athlete.Activities.filter(
       (activity: Activity) => {
         const activityDate = new Date(activity.start_date);
@@ -171,7 +171,43 @@ export class DashBodyComponent {
       0
     );
 
-    return (totalDistance / 1000).toFixed(2);
+    var returnString = (totalDistance / 1000).toFixed(2);
+    return parseFloat(returnString);
+  }
+
+  calculateMaxDistance(
+    groupId: string,
+    startDate: string,
+    endDate: string
+  ): string {
+    var longestDistance = 0;
+    var longestAthlete = '';
+    if (this.mainUser !== null) {
+      longestDistance = this.calculateTotalDistance(
+        this.mainUser!,
+        startDate,
+        endDate
+      );
+      var longestAthlete =
+        this.mainUser!.firstname + ' ' + this.mainUser!.lastname;
+    }
+
+    const selectedGroup = this.GROUPS.find(
+      (group) => group.groupId === groupId
+    );
+
+    selectedGroup?.athletes.forEach((athlete: Athlete) => {
+      const totalDistance = this.calculateTotalDistance(
+        athlete,
+        startDate,
+        endDate
+      );
+      if (totalDistance > longestDistance) {
+        longestDistance = totalDistance;
+        longestAthlete = athlete.firstname + ' ' + athlete.lastname;
+      }
+    });
+    return `${longestAthlete} is in the lead with ${longestDistance} km`;
   }
 }
 

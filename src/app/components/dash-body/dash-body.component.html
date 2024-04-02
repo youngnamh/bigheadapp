@@ -12,11 +12,22 @@
           </mat-expansion-panel-header>
           <mat-action-row class="action-row">
             <div class="action-content">
+              <div class="leader">
+                {{
+                  calculateMaxDistance(
+                    group.groupId,
+                    group.startDate,
+                    group.endDate
+                  )
+                }}
+              </div>
               <div class="athlete" *ngIf="mainUserInitiated">
-                <div>{{ mainUser?.firstname }} {{ mainUser?.lastname }}</div>
-                <div>Activities Logged: {{ mainUser?.listLength }}</div>
+                <div class="athlete-name">
+                  {{ mainUser?.firstname }} {{ mainUser?.lastname }}
+                </div>
+                <div>Activities Logged: 7</div>
                 <div>
-                  Total KMs completed:
+                  Total distance travelled:
                   {{
                     calculateTotalDistance(
                       mainUser!,
@@ -24,10 +35,13 @@
                       group.endDate
                     )
                   }}
+                  KMs
                 </div>
               </div>
               <div class="athlete" *ngFor="let athlete of group.athletes">
-                <div>{{ athlete.firstname }} {{ athlete.lastname }}</div>
+                <div class="athlete-name">
+                  {{ athlete.firstname }} {{ athlete.lastname }}
+                </div>
                 <div>Activities Logged: {{ athlete.listLength }}</div>
                 <div>
                   Total distance travelled:

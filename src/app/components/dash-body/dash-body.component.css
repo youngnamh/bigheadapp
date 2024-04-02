@@ -55,3 +55,20 @@ li {
   margin-left: 1rem;
   margin-right: 1rem;
 }
+
+.leader {
+  margin: 0.25rem;
+  padding: 0.5rem;
+}
+
+.athlete {
+  background-color: var(--blue-accent);
+  margin: 0.25rem;
+  padding: 0.5rem;
+  border-radius: 20px 20px;
+}
+
+.athlete-name {
+  font-size: x-large;
+  font-weight: bold;
+}
