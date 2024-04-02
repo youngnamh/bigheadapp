@@ -6,11 +6,15 @@
           <mat-expansion-panel-header>
             <mat-panel-title> {{ group.groupName }} </mat-panel-title>
             <mat-panel-description>
-              End Date: {{ group.endDate }}
+              <div class="date">Start Date: {{ group.startDate }}</div>
+              <div class="date">End Date: {{ group.endDate }}</div>
             </mat-panel-description>
           </mat-expansion-panel-header>
           <mat-action-row class="action-row">
             <div class="action-content">
+              <div class="athlete" *ngIf="mainUserInitiated">
+                {{ mainUser?.firstname }} {{ mainUser?.lastname }}
+              </div>
               <div class="athlete" *ngFor="let athlete of group.athletes">
                 {{ athlete.firstname }} {{ athlete.lastname }}
               </div>

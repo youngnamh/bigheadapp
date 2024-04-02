@@ -50,3 +50,8 @@ li {
   border: 1px solid black;
   width: 100%;
 }
+
+.date {
+  margin-left: 1rem;
+  margin-right: 1rem;
+}
