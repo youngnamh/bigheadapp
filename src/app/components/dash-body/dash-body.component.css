@@ -72,3 +72,20 @@ li {
   font-size: x-large;
   font-weight: bold;
 }
+
+@media only screen and (max-width: 576px) {
+  /* Styles for smartphones */
+  .body-container {
+    display: flex;
+    flex-direction: column;
+    height: 120%;
+  }
+  .main-body {
+    height: 85%;
+    width: 100%;
+  }
+  .friends-list {
+    height: 15%;
+    width: 100%;
+  }
+}

@@ -3,11 +3,13 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { AuthService } from '../../services/auth.service';
 import { StateService } from '../../services/state.service';
 import { Athlete } from '../../interfaces/Athlete';
+import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
+import BrowserAnimationsModule from '@angular/platform-browser/animations';
 
 @Component({
   selector: 'app-redirect',
   standalone: true,
-  imports: [],
+  imports: [MatProgressSpinnerModule],
   templateUrl: './redirect.component.html',
   styleUrl: './redirect.component.css',
 })

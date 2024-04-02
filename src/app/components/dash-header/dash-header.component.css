@@ -9,10 +9,6 @@ div {
   height: 100%;
 }
 
-.border {
-  border: 1px solid black;
-}
-
 .d-h-top {
   height: 100%;
   display: flex;
@@ -46,6 +42,11 @@ div {
 
 .d-h-title {
   font-size: xx-large;
+}
+
+.create-button {
+  font-size: small;
+  padding: 1rem;
 }
 
 @media only screen and (max-width: 576px) {

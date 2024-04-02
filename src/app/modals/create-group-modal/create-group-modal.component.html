@@ -1,0 +1,53 @@
+<div class="main-body">
+  <div class="center">
+    <h2>Create New Group</h2>
+    <div class="form-group">
+      <label for="groupNameInput">Group Name</label>
+      <input
+        type="text"
+        class="form-control"
+        id="groupNameInput"
+        placeholder="Enter group name"
+      />
+    </div>
+    <div>
+      <div>
+        <div class="datepicker">
+          <label for="startDate">Start Date</label>
+
+          <mat-form-field>
+            <input
+              matInput
+              [matDatepicker]="picker"
+              placeholder="Choose a date"
+            />
+            <mat-datepicker-toggle
+              matSuffix
+              [for]="picker"
+            ></mat-datepicker-toggle>
+            <mat-datepicker #picker></mat-datepicker>
+          </mat-form-field>
+        </div>
+        <div class="datepicker">
+          <label for="startDate">End Date</label>
+
+          <mat-form-field>
+            <input
+              matInput
+              [matDatepicker]="picker1"
+              placeholder="Choose a date"
+            />
+            <mat-datepicker-toggle
+              matSuffix
+              [for]="picker1"
+            ></mat-datepicker-toggle>
+            <mat-datepicker #picker1></mat-datepicker>
+          </mat-form-field>
+        </div>
+      </div>
+    </div>
+    <div class="create-button">
+      <button mat-button-raised>Create</button>
+    </div>
+  </div>
+</div>

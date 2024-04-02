@@ -128,14 +128,14 @@ export class DashBodyComponent {
   GROUPS: Group[] = [
     {
       groupId: 'A1000',
-      groupName: 'Saskatoon friends',
+      groupName: 'Saskatoon friends Challenge',
       startDate: '2024-03-01',
       endDate: '2024-03-31',
       athletes: [this.ATHLETES[2]],
     },
     {
       groupId: 'A1001',
-      groupName: 'East Coast',
+      groupName: 'East Coast Challenge',
       startDate: '2024-03-01',
       endDate: '2024-03-31',
       athletes: [this.ATHLETES[0], this.ATHLETES[1]],
