@@ -2,33 +2,23 @@ import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { StateService } from '../../services/state.service';
 import { MatTabsModule } from '@angular/material/tabs';
-// import { ATHLETES } from '../../interfaces/data.mock';
-// import { Group } from '../../interfaces/Group';
+import { MatExpansionModule } from '@angular/material/expansion';
+import { ATHLETES } from '../../interfaces/data.mock';
 import { Activity } from '../../interfaces/Activity';
 import { Athlete } from '../../interfaces/Athlete';
 import { Group } from '../../interfaces/Group';
+import { OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-dash-body',
   standalone: true,
-  imports: [CommonModule, MatTabsModule],
+  imports: [CommonModule, MatTabsModule, MatExpansionModule],
   templateUrl: './dash-body.component.html',
   styleUrl: './dash-body.component.css',
 })
 export class DashBodyComponent {
   constructor(private stateService: StateService) {}
-  participants = [
-    { name: 'Dave' },
-    { name: 'John' },
-    { name: 'Jane' },
-    { name: 'Doe' },
-    { name: 'Smith' },
-    { name: 'Alice' },
-    { name: 'Bob' },
-    { name: 'Charlie' },
-    { name: 'Eve' },
-    { name: 'Mallory' },
-  ];
+  participants = [{ name: 'Feven' }, { name: 'Koichi' }, { name: 'Rory' }];
 
   ATHLETES: Athlete[] = [
     {

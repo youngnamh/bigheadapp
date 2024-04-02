@@ -17,6 +17,8 @@ export const ATHLETES: Athlete[] = [
       { start_date: '2024-03-08T12:04:53Z', type: 'Run', distance: 8112 },
       { start_date: '2024-03-10T12:04:53Z', type: 'Cycling', distance: 1507 },
     ],
+    Groups: ['A1001'],
+    Friends: [64603272],
   },
   {
     id: 5001,
@@ -34,6 +36,8 @@ export const ATHLETES: Athlete[] = [
       { start_date: '2024-03-12T12:04:53Z', type: 'Run', distance: 6210 },
       { start_date: '2024-03-19T12:04:53Z', type: 'Cycling', distance: 1184 },
     ],
+    Groups: ['A1001'],
+    Friends: [64603272],
   },
   {
     id: 5002,
@@ -52,16 +56,18 @@ export const ATHLETES: Athlete[] = [
       { start_date: '2024-03-15T13:30:25Z', type: 'Cycling', distance: 4265 },
       { start_date: '2024-03-17T17:45:10Z', type: 'Run', distance: 9251 },
     ],
+    Groups: ['A1000'],
+    Friends: [64603272],
   },
 ];
 
 export const GROUPS: Group[] = [
   {
     groupId: 'A1000',
-    groupName: 'All my friends',
+    groupName: 'Saskatoon friends',
     startDate: '2024-03-01',
     endDate: '2024-03-31',
-    athletes: [ATHLETES[0], ATHLETES[1], ATHLETES[2]],
+    athletes: [ATHLETES[2]],
   },
   {
     groupId: 'A1001',

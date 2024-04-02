@@ -1,17 +1,27 @@
 <div class="body-container">
   <div class="main-body border">
-    <div class="all-groups">
-      <div class="group" *ngFor="let group of GROUPS">
-        <h3>{{ group.groupName }}</h3>
-        <p><strong>Group ID:</strong> {{ group.groupId }}</p>
-        <p><strong>Start Date:</strong> {{ group.startDate }}</p>
-        <p><strong>End Date:</strong> {{ group.endDate }}</p>
-        <p><strong>Athletes:</strong></p>
+    <mat-accordion>
+      <div *ngFor="let group of GROUPS">
+        <mat-expansion-panel>
+          <mat-expansion-panel-header>
+            <mat-panel-title> {{ group.groupName }} </mat-panel-title>
+            <mat-panel-description>
+              End Date: {{ group.endDate }}
+            </mat-panel-description>
+          </mat-expansion-panel-header>
+          <mat-action-row class="action-row">
+            <div class="action-content">
+              <div class="athlete" *ngFor="let athlete of group.athletes">
+                {{ athlete.firstname }} {{ athlete.lastname }}
+              </div>
+            </div>
+          </mat-action-row>
+        </mat-expansion-panel>
       </div>
-    </div>
+    </mat-accordion>
   </div>
   <div class="friends-list border">
-    <div class="participants-title">Participants</div>
+    <div class="participants-title">Friends</div>
     <div class="participants-list">
       <li *ngFor="let participant of participants">{{ participant.name }}</li>
     </div>

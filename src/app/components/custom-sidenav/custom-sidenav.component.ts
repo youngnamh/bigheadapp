@@ -43,9 +43,9 @@ export class CustomSidenavComponent {
 
   menuItems: MenuItem[] = [
     { name: 'Recent Activity', icon: 'dashboard', route: '/dashboard' },
-    { name: 'Groups', icon: 'groups', route: '/profile' },
     { name: 'Settings', icon: 'settings', route: '/settings' },
     { name: 'Invitations', icon: 'mail', route: '/settings' },
+    { name: 'Groups', icon: 'groups', route: '/profile' },
   ];
 
   constructor(

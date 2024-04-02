@@ -1,3 +1,7 @@
+body {
+  box-sizing: border-box;
+}
+
 .dash-body {
   margin: 0;
   background-color: yellow;
@@ -35,4 +39,14 @@
 
 li {
   text-align: center;
+}
+
+.action-row {
+  height: 80dvh;
+  padding: 0.25rem;
+}
+
+.action-content {
+  border: 1px solid black;
+  width: 100%;
 }
