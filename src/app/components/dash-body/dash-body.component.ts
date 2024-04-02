@@ -141,6 +141,38 @@ export class DashBodyComponent {
       athletes: [this.ATHLETES[0], this.ATHLETES[1]],
     },
   ];
+
+  formatDate(date: Date): string {
+    const year = date.getFullYear();
+    const month = (date.getMonth() + 1).toString().padStart(2, '0');
+    const day = date.getDate().toString().padStart(2, '0');
+    return `${year}-${month}-${day}`;
+  }
+
+  calculateTotalDistance(
+    athlete: Athlete,
+    startDate: string,
+    endDate: string
+  ): string {
+    const activitiesWithinRange = athlete.Activities.filter(
+      (activity: Activity) => {
+        const activityDate = new Date(activity.start_date);
+        const formattedActivityDate = this.formatDate(activityDate);
+        return (
+          formattedActivityDate >= startDate && formattedActivityDate <= endDate
+        );
+      }
+    );
+
+    const totalDistance = activitiesWithinRange.reduce(
+      (total: number, activity: Activity) => {
+        return total + activity.distance;
+      },
+      0
+    );
+
+    return (totalDistance / 1000).toFixed(2);
+  }
 }
 
 /*

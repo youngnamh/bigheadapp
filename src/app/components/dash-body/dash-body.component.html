@@ -13,10 +13,33 @@
           <mat-action-row class="action-row">
             <div class="action-content">
               <div class="athlete" *ngIf="mainUserInitiated">
-                {{ mainUser?.firstname }} {{ mainUser?.lastname }}
+                <div>{{ mainUser?.firstname }} {{ mainUser?.lastname }}</div>
+                <div>Activities Logged: {{ mainUser?.listLength }}</div>
+                <div>
+                  Total KMs completed:
+                  {{
+                    calculateTotalDistance(
+                      mainUser!,
+                      group.startDate,
+                      group.endDate
+                    )
+                  }}
+                </div>
               </div>
               <div class="athlete" *ngFor="let athlete of group.athletes">
-                {{ athlete.firstname }} {{ athlete.lastname }}
+                <div>{{ athlete.firstname }} {{ athlete.lastname }}</div>
+                <div>Activities Logged: {{ athlete.listLength }}</div>
+                <div>
+                  Total distance travelled:
+                  {{
+                    calculateTotalDistance(
+                      athlete,
+                      group.startDate,
+                      group.endDate
+                    )
+                  }}
+                  KMs
+                </div>
               </div>
             </div>
           </mat-action-row>
